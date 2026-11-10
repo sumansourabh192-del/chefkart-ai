@@ -129,6 +129,29 @@ function App() {
   const [isLoadingAdminOrders, setIsLoadingAdminOrders] = useState(false);
   const [adminOrdersError, setAdminOrdersError] = useState("");
 
+  // AI Nutrition Analyzer
+  const [nutritionFood, setNutritionFood] = useState("");
+  const [nutritionResult, setNutritionResult] = useState(null);
+  const [nutritionError, setNutritionError] = useState("");
+
+  const analyzeNutrition = () => {
+    const food = foods.find(
+      (item) => item.id === Number(nutritionFood)
+    );
+
+    if (!food) {
+      setNutritionError("Please select a food item.");
+      setNutritionResult(null);
+      return;
+    }
+
+    setNutritionError("");
+    setNutritionResult({
+      name: food.name,
+      calories: food.calories,
+      protein: food.protein,
+    });
+  };
   const filteredFoods = foods.filter((food) => {
     const matchesCategory =
       selectedCategory === "All" ||
@@ -682,16 +705,64 @@ function App() {
         <section className="nutrition-section" id="nutrition">
           <div>
             <span className="eyebrow">
-              MEET YOUR AI FOOD ASSISTANT
+              YOUR FOOD NUTRITION GUIDE
             </span>
             <h2>Know what you eat.</h2>
             <p>
-              Discover calories, protein, carbohydrates and fats
-              with our AI-powered nutrition assistant.
+              Select a food item to view its estimated calories
+              and protein information.
             </p>
-            <button className="nutrition-btn">
-              Explore AI Nutrition →
-            </button>
+
+            <div className="nutrition-analyzer">
+              <select
+                value={nutritionFood}
+                onChange={(event) => {
+                  setNutritionFood(event.target.value);
+                  setNutritionResult(null);
+                  setNutritionError("");
+                }}
+              >
+                <option value="">Select a food item</option>
+                {foods.map((food) => (
+                  <option key={food.id} value={food.id}>
+                    {food.name}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                className="nutrition-btn"
+                onClick={analyzeNutrition}
+              >
+                Analyze Nutrition →
+              </button>
+
+              {nutritionError && (
+                <p className="nutrition-error">{nutritionError}</p>
+              )}
+
+              {nutritionResult && (
+                <div className="nutrition-result">
+                  <h3>{nutritionResult.name}</h3>
+                  <p>Estimated nutrition per serving</p>
+                  <div className="nutrition-result-values">
+                    <div>
+                      <strong>{nutritionResult.calories}</strong>
+                      <span>Calories (kcal)</span>
+                    </div>
+                    <div>
+                      <strong>{nutritionResult.protein}g</strong>
+                      <span>Protein</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <small>
+                Values are approximate estimates and may vary by recipe
+                and serving size.
+              </small>
+            </div>
           </div>
           <div className="nutrition-icon">🧠🥑</div>
         </section>
@@ -1188,6 +1259,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 

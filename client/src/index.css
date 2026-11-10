@@ -469,3 +469,85 @@ footer small {
     font-size: 65px;
   }
 }
+
+/* Nutrition Analyzer */
+.nutrition-analyzer {
+  width: 100%;
+  max-width: 490px;
+}
+
+.nutrition-analyzer select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #d5dfd0;
+  border-radius: 9px;
+  background: #fff;
+  color: #263526;
+  font-size: 15px;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+.nutrition-analyzer .nutrition-btn {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nutrition-analyzer .nutrition-btn:hover {
+  background: #397a2b;
+}
+
+.nutrition-analyzer small {
+  display: block;
+  color: #68766a;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.nutrition-error {
+  color: #c0392b !important;
+  margin: 10px 0 !important;
+}
+
+.nutrition-result {
+  background: #fff;
+  border: 1px solid #e0e9dc;
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 18px;
+}
+
+.nutrition-result h3 {
+  margin: 0 0 5px;
+  color: #263526;
+}
+
+.nutrition-result p {
+  margin: 0 0 15px;
+  font-size: 13px;
+}
+
+.nutrition-result-values {
+  display: flex;
+  gap: 15px;
+}
+
+.nutrition-result-values > div {
+  flex: 1;
+  background: #f0f6eb;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nutrition-result-values strong {
+  color: #397a2b;
+  font-size: 23px;
+}
+
+.nutrition-result-values span {
+  color: #68766a;
+  font-size: 12px;
+}

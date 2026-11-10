@@ -1,0 +1,135 @@
+﻿.food-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.food-bottom .details-btn {
+  background: #eef4ea;
+  color: #4d9639;
+}
+
+.details-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.details-modal {
+  background: white;
+  width: 100%;
+  max-width: 430px;
+  padding: 25px;
+  border-radius: 20px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  background: #f0f2ee;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 24px;
+  z-index: 1;
+}
+
+.details-image {
+  height: 170px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  font-size: 90px;
+  margin-bottom: 20px;
+}
+
+.details-modal h2 {
+  font-family: 'Outfit', sans-serif;
+  margin: 8px 0;
+}
+
+.details-modal > p {
+  color: #748075;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.details-nutrition {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.details-nutrition div {
+  flex: 1;
+  background: #f0f6eb;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.details-nutrition strong {
+  color: #4d9639;
+  font-size: 21px;
+}
+
+.details-nutrition small {
+  color: #748075;
+}
+
+.details-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.details-price > strong {
+  font-size: 23px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.quantity-control button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #eaf4e5;
+  color: #356d30;
+  font-size: 20px;
+}
+
+.modal-add-btn {
+  width: 100%;
+  padding: 14px;
+  background: #4d9639;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+@media (max-width: 400px) {
+  .food-actions {
+    gap: 4px;
+  }
+
+  .food-bottom .details-btn,
+  .food-bottom button {
+    padding: 8px;
+  }
+}

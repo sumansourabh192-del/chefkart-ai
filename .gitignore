@@ -1,0 +1,17 @@
+﻿node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+client/node_modules/
+client/dist/
+server/node_modules/
+server/.env
+
+# Local backup and temporary files
+*.backup
+*.checkout-backup
+*.step6-backup
+temp-imports.txt
